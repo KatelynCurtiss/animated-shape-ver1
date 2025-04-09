@@ -21,6 +21,10 @@ def handle_events():
                 return False
     return True
 
+
+def draw_rectangle(screen, x, y, width, height):
+    pygame.draw.rect(screen, config.RED, (100,150, 30,30))
+
 def draw_text(screen, text, x,y, font_size, font_color, font_name=None, bold=False, italic=False):
     if font_name:
         font=pygame.font.Font(font_name, font_size)
@@ -37,12 +41,12 @@ def draw_text(screen, text, x,y, font_size, font_color, font_name=None, bold=Fal
 def main():
 
     screen = init_game()
-    clock = pygame.time.Clock() # Initialize the clock object
+    clock = pygame.time.Clock() 
     
     running = True
     while running:
         running = handle_events()
-        screen.fill(config.WHITE)  # Use color from config
+        screen.fill(config.WHITE)  
 
         font_x = 200
         font_y = 120
@@ -50,7 +54,7 @@ def main():
         font_color = config.RED
         font_name = None
 
-        # Info for displaying name of school on screen
+       
         font_x2 = 200
         font_y2 = 150
         font_size2 = 40
@@ -65,6 +69,10 @@ def main():
 
         # Limit frame rate to certain number of frames per second (FPS)
         clock.tick(config.FPS)
+
+
+
+        pygame.display.flip()
 
     pygame.quit()
     sys.exit()
